@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>NDI for Unitor / Unipad</title>
+</head>
+<body class="flex-center">
+    <div id="main">
+        <div id="app">
+            <div id="title-box" class="text-align-left">
+                <h1 class="extra-bold">NDI</h1>
+                <div>
+                    <p id="version" class="bold">Release 1.0</p>
+                    <p id="subtitle" class="light">No Drum & Instrumental</p>
+                </div>
+                <div id="description">
+                    <div>
+                        <p class="bold">특정 체인의 버튼을 AutoPlay에서 제외할 수 있어요</p>
+                        <p class="normal">This program removes certain chain buttons from AutoPlay.</p>
+                    </div>
+                    <div>
+                        <p class="bold">사용 예시) 드럼 제거, 반주 제거</p>
+                        <p class="normal">ex) Remove Drum or Instrument Button</p>
+                    </div>
+                </div>
+            </div>
+            <div id="app-main" class="flex-center">
+                <div>
+                    <p class="bold">Input AutoPlay</p>
+                    <textarea id="input" placeholder="Input AutoPlay Here"></textarea>
+                    <p id="input_line_count" class="line-text">0 Lines</p>
+                </div>
+                <div class="center-sortation">
+                    <p class="bold">>>></p>
+                </div>
+                <div>
+                    <p class="bold">Output AutoPlay</p>
+                    <textarea id="output" readonly placeholder="Read Only"></textarea>
+                    <p id="output_line_count" class="line-text">0 Lines</p>
+                </div>
+            </div>
+            <div id="button-input-box" class="flex-center">
+                <div>
+                    <p>Drum & Instrumental Button List</p>
+                    <div id="block" class="flex-center">
+                        <div class="text-align-left padding-15">
+                            <div class="flex-center">
+                                <select id="chain_select">
+                                    <option value="c1">Chain 1</option>
+                                    <option value="c2">Chain 2</option>
+                                    <option value="c3">Chain 3</option>
+                                    <option value="c4">Chain 4</option>
+                                    <option value="c5">Chain 5</option>
+                                    <option value="c6">Chain 6</option>
+                                    <option value="c7">Chain 7</option>
+                                    <option value="c8">Chain 8</option>
+                                    <option value="c9">Chain 9</option>
+                                    <option value="c10">Chain 10</option>
+                                    <option value="c11">Chain 11</option>
+                                    <option value="c12">Chain 12</option>
+                                    <option value="c13">Chain 13</option>
+                                    <option value="c14">Chain 14</option>
+                                    <option value="c15">Chain 15</option>
+                                    <option value="c16">Chain 16</option>
+                                    <option value="c17">Chain 17</option>
+                                    <option value="c18">Chain 18</option>
+                                    <option value="c19">Chain 19</option>
+                                    <option value="c20">Chain 20</option>
+                                    <option value="c21">Chain 21</option>
+                                    <option value="c22">Chain 22</option>
+                                    <option value="c23">Chain 23</option>
+                                    <option value="c24">Chain 24</option>
+                                </select>
+                                <!-- <img id="icon" src="./src/check.png" height="30px"> -->
+                            </div>
+                            <div>
+                                <textarea id="delete_button" placeholder="Input X Y"></textarea>
+                            </div>
+                        </div>
+                        <div id="description_2" class="text-align-left padding-15">
+                            <p>AutoPlay에서 제외할 버튼들의 x y 좌표를 줄바꿈으로 구분해주세요</p>
+                            <p>ex) 4 3<br>
+                                2 4<br>
+                                8 2<br>
+                                8 3<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="button-box">
+                    <div>
+                        <button id="toggle_pad" class="bt-color-1" type="button">Toggle Launchpad</button>
+                    </div>
+                    <div>
+                        <button id="start" class="bt-color-2" type="button">Start Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">ⓒ 2023. WhiteDeveloper7773 All rights reserved.</p>
+        <div id="credit-box" class="flex-center">
+            <a id="unipad" href="https://cafe.naver.com/unipad" target='_blank'>
+                <img src="./src/Unipad.png" width="25" height="25">
+                <p class="extra-bold hide">유니패드 커뮤니티</p>
+            </a>
+            <a id="ndi" href="https://cafe.naver.com/unipad" target='_blank'>
+                <img src="./src/Unipad.png" width="25" height="25">
+                <p class="extra-bold hide">NDI 게시글</p>
+            </a>
+            <a id="github" href="https://github.com/whitedev7773/NDI" target='_blank'>
+                <img src="./src/Github.png" width="25" height="25">
+                <p class="extra-bold hide">GitHub</p>
+            </a>
+            <a id="youtube" href="https://www.youtube.com/@whitedev7773" target='_blank'>
+                <img src="./src/Youtube.png" width="25" height="25">
+                <p class="extra-bold hide">Youtube</p>
+            </a>
+        </div>
+    </div>
+    <div id="launchpad" class="">
+        <div class="flex-center">
+            <div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div><div class="chain"></div>
+        </div>
+        <div class="flex-center">
+            <div id="c24" class="chain"><div><p>c 24</p></div></div><div id="b11" class="button"><div><p>1 1</p></div></div><div id="b12" class="button"><div><p>1 2</p></div></div><div id="b13" class="button"><div><p>1 3</p></div></div><div id="b14" class="button"><div><p>1 4</p></div></div><div id="b15" class="button"><div><p>1 5</p></div></div><div id="b16" class="button"><div><p>1 6</p></div></div><div id="b17" class="button"><div><p>1 7</p></div></div><div id="b18" class="button"><div><p>1 8</p></div></div><div id="c1" class="chain selected-chain"><div><p>c 1</p></div></div>
+        </div>
+        <div class="flex-center">
+            <div id="c23" class="chain"><div><p>c 23</p></div></div><div id="b21" class="button"><div><p>2 1</p></div></div><div id="b22" class="button"><div><p>2 2</p></div></div><div id="b23" class="button"><div><p>2 3</p></div></div><div id="b24" class="button"><div><p>2 4</p></div></div><div id="b25" class="button"><div><p>2 5</p></div></div><div id="b26" class="button"><div><p>2 6</p></div></div><div id="b27" class="button"><div><p>2 7</p></div></div><div id="b28" class="button"><div><p>2 8</p></div></div><div id="c2" class="chain"><div><p>c 2</p></div></div>
+        </div>
+        <div class="flex-center">
+            <div id="c22" class="chain"><div><p>c 22</p></div></div><div id="b31" class="button"><div><p>3 1</p></div></div><div id="b32" class="button"><div><p>3 2</p></div></div><div id="b33" class="button"><div><p>3 3</p></div></div><div id="b34" class="button"><div><p>3 4</p></div></div><div id="b35" class="button"><div><p>3 5</p></div></div><div id="b36" class="button"><div><p>3 6</p></div></div><div id="b37" class="button"><div><p>3 7</p></div></div><div id="b38" class="button"><div><p>3 8</p></div></div><div id="c3" class="chain"><div><p>c 3</p></div></div>
+        </div>
+        <div class="flex-center">
+            <div id="c21" class="chain"><div><p>c 21</p></div></div><div id="b41" class="button"><div><p>4 1</p></div></div><div id="b42" class="button"><div><p>4 2</p></div></div><div id="b43" class="button"><div><p>4 3</p></div></div><div id="b44" class="button center1"><div><p>4 4</p></div></div><div id="b45" class="button center2"><div><p>4 5</p></div></div><div id="b46" class="button"><div><p>4 6</p></div></div><div id="b47" class="button"><div><p>4 7</p></div></div><div id="b48" class="button"><div><p>4 8</p></div></div><div id="c4" class="chain"><div><p>c 4</p></div></div>
+        </div>
+        <div class="flex-center">
+            <div id="c20" class="chain"><div><p>c 20</p></div></div><div id="b51" class="button"><div><p>5 1</p></div></div><div id="b52" class="button"><div><p>5 2</p></div></div><div id="b53" class="button"><div><p>5 3</p></div></div><div id="b54" class="button center3"><div><p>5 4</p></div></div><div id="b55" class="button center4"><div><p>5 5</p></div></div><div id="b56" class="button"><div><p>5 6</p></div></div><div id="b57" class="button"><div><p>5 7</p></div></div><div id="b58" class="button"><div><p>5 8</p></div></div><div id="c5" class="chain"><div><p>c 5</p></div></div>
+        </div>
+        <div class="flex-center">
+            <div id="c19" class="chain"><div><p>c 19</p></div></div><div id="b61" class="button"><div><p>6 1</p></div></div><div id="b62" class="button"><div><p>6 2</p></div></div><div id="b63" class="button"><div><p>6 3</p></div></div><div id="b64" class="button"><div><p>6 4</p></div></div><div id="b65" class="button"><div><p>6 5</p></div></div><div id="b66" class="button"><div><p>6 6</p></div></div><div id="b67" class="button"><div><p>6 7</p></div></div><div id="b68" class="button"><div><p>6 8</p></div></div><div id="c6" class="chain"><div><p>c 6</p></div></div>
+        </div>
+        <div class="flex-center">
+            <div id="c18" class="chain"><div><p>c 18</p></div></div><div id="b71" class="button"><div><p>7 1</p></div></div><div id="b72" class="button"><div><p>7 2</p></div></div><div id="b73" class="button"><div><p>7 3</p></div></div><div id="b74" class="button"><div><p>7 4</p></div></div><div id="b75" class="button"><div><p>7 5</p></div></div><div id="b76" class="button"><div><p>7 6</p></div></div><div id="b77" class="button"><div><p>7 7</p></div></div><div id="b78" class="button"><div><p>7 8</p></div></div><div id="c7" class="chain"><div><p>c 7</p></div></div>
+        </div>
+        <div class="flex-center">
+            <div id="c17" class="chain"><div><p>c 17</p></div></div><div id="b81" class="button"><div><p>8 1</p></div></div><div id="b82" class="button"><div><p>8 2</p></div></div><div id="b83" class="button"><div><p>8 3</p></div></div><div id="b84" class="button"><div><p>8 4</p></div></div><div id="b85" class="button"><div><p>8 5</p></div></div><div id="b86" class="button"><div><p>8 6</p></div></div><div id="b87" class="button"><div><p>8 7</p></div></div><div id="b88" class="button"><div><p>8 8</p></div></div><div id="c8" class="chain"><div><p>c 8</p></div></div>
+        </div>
+        <div class="flex-center">
+            <div id="c16" class="chain"><div><p>c 16</p></div></div><div id="c15" class="chain"><div><p>c 15</p></div></div><div id="c14" class="chain"><div><p>c 14</p></div></div><div id="c13" class="chain"><div><p>c 13</p></div></div><div id="c12" class="chain"><div><p>c 12</p></div></div><div id="c11" class="chain"><div><p>c 11</p></div></div><div id="c10" class="chain"><div><p>c 10</p></div></div><div id="c9" class="chain"><div><p>c 9</p></div></div>
+        </div>
+    </div>
+</body>
+<script src="./script.js" type="module"></script>
+<script src="./credit.js" type="module"></script>
+</html>
