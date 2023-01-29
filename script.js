@@ -78,12 +78,7 @@ var Update = setInterval(function() {
     var input = document.querySelector("#delete_button");
     var chain = document.querySelector("#chain_select").value.replace("c", "");
     var input_split = input.value.split("\n");
-    
-    for (var i=0; i<input_split.length; i++) {
-        input_split[i] = input_split[i].trim();
-    }
     data[chain] = input_split;
-    
     
     // 저장과 동시에 삭제될 버튼 표시
     input_split.forEach((yx) => {
@@ -107,51 +102,25 @@ var Update = setInterval(function() {
 
 // 변환 시작 버튼 클릭시
 start.addEventListener("click", (e) => {
-    // OUTPUT 초기화
     output.value = "";
 
     var chain_mode = "1";
-    
-    var chain_command = ["c", "chain"];
-    var touch_command = [
-        "t", "touch",
-        "o", "on",
-        "f", "off"
-    ];
 
     var input_split = input.value.split("\n");
-    for (var i=0; i < input_split.length; i++) {
-        var line = input_split[i].trim();  // 앞 뒤 공백 제거
-        var line_split = line.split(" ");
+    for (var line in input_split) {
+        line = input_split[line].trim();
 
-        // 공백이면 건드리지 말고 추가
-        if (line == "") {
-            output.value += "\n";
+        // 체인 변경
+        if (line.startsWith("c")) {
+            chain_mode = line.replace("c", "").trim();
+        }
+
+        // line이 삭제할 버튼 데이터에 있으면
+        if (data[chain_mode].includes(line.slice(2))){
+            console.log("OUTPUT PASSED");
             continue;
         }
 
-        var command = line_split[0];
-
-        // console.log(command, chain_command.includes(command), touch_command.includes(command));
-        
-        // 체인 명령어라면
-        if (chain_command.includes(command)) {
-            // console.log("체인 변경");
-            chain_mode = line_split[1];
-        }
-        // 터치 명령어라면
-        else if (touch_command.includes(command)) {
-            // console.log("터치 커맨드");
-            var y = line_split[1];
-            var x = line_split[2];
-            // 제외할 버튼이라면 다음 라인으로 이동
-            if (data[chain_mode].includes(`${y} ${x}`)) {
-                console.log(`Line ${i} OUTPUT PASSED [${line}]`);
-                continue;
-            }
-        }
-
-        // 모든 제외 조건에 불일치하면 OUTPUT에 라인 추가
         output.value += line + "\n";
     }
 });
